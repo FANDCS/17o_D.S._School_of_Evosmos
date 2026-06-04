@@ -131,7 +131,7 @@
       transform: rotate(-10deg); 
     }
     
-    /* Κεντρικό Πλαίσιο */
+    /* Κεντρικό Πλαίσιο με Animation Ανάδυσης */
     .container {
       max-width: 430px;
       width: 100%;
@@ -147,6 +147,19 @@
       border-radius: 32px;
       box-shadow: var(--shadow-md);
       border: 1px solid rgba(255, 255, 255, 0.7);
+      /* Animation: Φόρτωμα / Ανάδυση από κάτω προς τα πάνω */
+      animation: smoothIntro 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    }
+
+    @keyframes smoothIntro {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
     
     /* ── LOGO BOX ── */
@@ -352,6 +365,7 @@
 </head>
 <body>
 
+  <!-- Ελεύθερα Background Σχήματα -->
   <div class="geo-shape sh-circle-blue"></div>
   <div class="geo-shape sh-triangle-red"></div>
   <div class="geo-shape sh-square-yellow"></div>
@@ -360,6 +374,7 @@
   <div class="geo-shape sh-circle-yellow"></div>
   <div class="geo-shape sh-square-blue"></div>
 
+  <!-- Κεντρικό Content Box -->
   <div class="container">
   
     <div class="logo-container">

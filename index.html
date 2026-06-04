@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>17ο Δ.Σ. Εύοσμου</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/FANDCS/17o_D.S._School_of_Evosmos/refs/heads/main/media/17ods_school_logo.png?token=GHSAT0AAAAAAD6KU4H54ERQUYKZSN6NXXD22RBM6UA">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #f5f2ed;
+      --ink: #1a1814;
+      --muted: #8a8680;
+      --accent: #c8a97e;
+      --border: #d8d4ce;
+      --btn-bg: #1a1814;
+      --btn-text: #f5f2ed;
+      --btn-hover: #c8a97e;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Cormorant Garamond', serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Subtle background texture */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 20%, rgba(200, 169, 126, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(200, 169, 126, 0.06) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    /* Decorative corner lines */
+    body::after {
+      content: '';
+      position: fixed;
+      top: 2rem; left: 2rem; right: 2rem; bottom: 2rem;
+      border: 1px solid var(--border);
+      pointer-events: none;
+      opacity: 0.5;
+    }
+
+    .container {
+      max-width: 560px;
+      width: 100%;
+      text-align: center;
+      animation: fadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      font-weight: 300;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.2rem;
+      animation: fadeUp 0.9s 0.1s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 7vw, 3.8rem);
+      font-weight: 300;
+      letter-spacing: -0.01em;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 1.4rem;
+      animation: fadeUp 0.9s 0.18s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .divider {
+      width: 48px;
+      height: 1px;
+      background: var(--accent);
+      margin: 0 auto 1.6rem;
+      animation: fadeUp 0.9s 0.26s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .description {
+      font-size: 1.15rem;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--muted);
+      margin-bottom: 3rem;
+      animation: fadeUp 0.9s 0.34s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      animation: fadeUp 0.9s 0.42s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.1rem 1.6rem;
+      background: var(--btn-bg);
+      color: var(--btn-text);
+      text-decoration: none;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.78rem;
+      font-weight: 300;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      border: 1px solid var(--btn-bg);
+      cursor: pointer;
+      transition:
+        background 0.28s ease,
+        color 0.28s ease,
+        border-color 0.28s ease,
+        transform 0.18s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--btn-hover);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 0;
+    }
+
+    .btn:hover::before {
+      transform: scaleX(1);
+    }
+
+    .btn:hover {
+      color: var(--ink);
+      border-color: var(--btn-hover);
+    }
+
+    .btn:active {
+      transform: scale(0.985);
+    }
+
+    .btn-label,
+    .btn-arrow {
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-arrow {
+      font-size: 1rem;
+      transition: transform 0.22s ease;
+    }
+
+    .btn:hover .btn-arrow {
+      transform: translateX(4px);
+    }
+
+    /* Outlined variant for 2nd button */
+    .btn.outlined {
+      background: transparent;
+      color: var(--ink);
+      border-color: var(--border);
+    }
+
+    .btn.outlined::before {
+      background: var(--ink);
+    }
+
+    .btn.outlined:hover {
+      color: var(--btn-text);
+      border-color: var(--ink);
+    }
+
+    /* Ghost variant for 3rd button */
+    .btn.ghost {
+      background: transparent;
+      color: var(--muted);
+      border-color: transparent;
+      border-bottom: 1px solid var(--border);
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .btn.ghost::before {
+      display: none;
+    }
+
+    .btn.ghost:hover {
+      color: var(--ink);
+      border-color: transparent;
+      border-bottom-color: var(--ink);
+    }
+
+    .footer {
+      margin-top: 3.5rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--border);
+      animation: fadeUp 0.9s 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <p class="eyebrow">2025 - 2026</p>
+
+    <h1>Αποφοίτηση<br>της <em>ΣΤ' Τάξης</em></h1>
+
+    <div class="divider"></div>
+
+    <p class="description">
+      Τα παρακάτω κουμπιά έχουν σε διαφορετικές υπηρεσίες το ίδιο βίντεο της αποφοίτησης.
+	  Όλες δουλεύουν, για υψηλές ταχύτητες προτείνεται το Transfer.it και το Transferit.gr,
+	  η λήψη του βίντεο είναι διαθέσιμη.
+    </p>
+
+    <div class="buttons">
+
+      <!-- ΚΟΥΜΠΙ 1: αλλάξτε το href -->
+      <a href="https://transfer.it/t/GaMK2L4j3BaI" class="btn" target="_blank" rel="noopener">
+        <span class="btn-label">Tsansfer.it</span>
+        <span class="btn-arrow">→</span>
+      </a>
+
+
+      <!-- ΚΟΥΜΠΙ 3: αλλάξτε το href -->
+      <a href="https://transferit.gr/download/OqVWcPJY49pLnR26VuPCck1f2IAdbfcd6UFm8QxW6NviTaaPfBRXC0vaPVWOl718" class="btn ghost" target="_blank" rel="noopener">
+        <span class="btn-label">Transferit.gr</span>
+        <span class="btn-arrow">→</span>
+      </a>
+
+      <!-- ΚΟΥΜΠΙ 2: αλλάξτε το href -->
+      <a href="https://sx6dg-my.sharepoint.com/:f:/g/personal/fandcs_sx6dg_onmicrosoft_com/IgBrBAVRAcWKTIIQOuJHGzLfAa6-R6MitFj_fy2th12l5FI?e=f0Opcn" class="btn outlined" target="_blank" rel="noopener">
+        <span class="btn-label">OneDrive</span>
+        <span class="btn-arrow">→</span>
+      </a>
+
+    </div>
+
+    <p class="footer"><b>© 2026 &nbsp;·&nbsp; GitHub οργανισμός <a href="https://github.com/FANDCS" target="_blank">FANDCS</a></b></p>
+  </div>
+
+</body>
+</html>

@@ -1,2 +1,2 @@
 # Beta
-Beta testing repository
+A school repisitory
